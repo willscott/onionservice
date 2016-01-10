@@ -1,0 +1,31 @@
+{
+  "name": "onionservice",
+  "version": "0.0.0",
+  "description": "An Onion Service server for Node",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/willscott/onionservice"
+  },
+  "keywords": [
+    "tor",
+    "privacy",
+    "anonymity",
+    "onion",
+    "hiddenservice",
+    "onionservice",
+    "server"
+  ],
+  "author": "Will Scott <willscott@gmail.com> (https://wills.co.tt)",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/willscott/onionservice/issues"
+  },
+  "dependencies": {
+    "connecttor": "0.0.1",
+    "split": "^1.0.0"
+  }
+}
