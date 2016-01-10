@@ -13,6 +13,21 @@ var app = express();
 var server = onion.createServer(app).listen(80);
 ```
 
+# Safety
+
+Node.js is not known to be a particularly hardened code base, and it is
+inadvisable to use this code base in security-critical situations. In addition,
+it is worth understanding the NPM package dependencies in a code base and the
+exposure to vulnerability associated with large code bases with varied lineage.
+
+OnionService is none-the-less an effective tool when used correctly. In addition
+to hidden web services, Onion Services provide NAT avoidance capabilities and
+the ability to easily construct P2P overlays. In these circumstances, use a
+random high port for listening to limit risk of crawling, and don't publish
+addresses publicly.
+
+# `createServer([options], [handler])`
+
 The key material used for construction of the onion service will be directory-
 local, and will remain stable across runs. It can be configured with additional
 keys in the `options` object, which has the following defaults:

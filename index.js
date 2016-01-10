@@ -9,6 +9,8 @@ var fs = require('fs');
 var http = require('http');
 var path = require('path');
 
+function toNumber(x) { return (x = Number(x)) >= 0 ? x : false; }
+
 /**
  * Read a file or stream to recover a stored keyblob.
  */
@@ -97,8 +99,17 @@ var onListening = function () {
   }.bind(this));
 };
 
-var listen = function(httpListen, options, port) {
-  this._onionPort = port;
+var listen = function(httpListen, options) {
+  // based on https://github.com/nodejs/node/blob/v5.4.0/lib/net.js#L1312
+  var lastArg = arguments[arguments.length - 1];
+  if (typeof lastArg === 'function') {
+    this.once('listening', lastArg);
+  }
+
+  this._onionPort = toNumber(arguments[2]);
+  if (this._onionPort === 0) {
+    this._onionPort = Math.floor(Math.random() * 0xFFFF);
+  }
   this._onionOpts = options || {};
   if (!this._onionOpts.keyMaterial) {
     this._onionOpts.keyMaterial = path.join(process.cwd(), ".onionservice");
