@@ -35,7 +35,7 @@ var getKeyBlob = function (stream, cb) {
 
 var setKeyBlob = function (stream, blob) {
   if (typeof stream === "string") {
-    stream = fs.createReadStream(stream);
+    stream = fs.createWriteStream(stream);
   }
   stream.end(blob);
 };
