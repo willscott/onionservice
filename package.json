@@ -27,5 +27,8 @@
   "dependencies": {
     "connecttor": "^0.1.0",
     "split": "^1.0.0"
+  },
+  "optionalDependencies": {
+    "posix": "^4.0.0"
   }
 }
