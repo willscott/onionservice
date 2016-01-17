@@ -25,7 +25,7 @@ var getKeyBlob = function (stream, cb) {
   var data = "";
   stream.on('readable', function () {
     var dat = stream.read();
-    if (dat.length === 0) {
+    if (!dat || dat.length === 0) {
       cb(data);
     } else {
       data =+ dat.toString("hex");
